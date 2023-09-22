@@ -13,9 +13,8 @@ RUN apt-get update && \
     make all && \
     make install && \
     cd /opt && \
-    git clone https://github.com/stuin/Solisp.git && \
+    git clone https://github.com/stuin/Solisp.git -b v$(cat /tmp/SOLISP_VERSION) && \
     cd Solisp && \
-    git reset --hard $(cat /tmp/SOLISP_COMMIT_HASH) && \
     make LDFLAGS=-leditline && \
     make install && \
     rm -rf /opt/editline /opt/Solisp && \
